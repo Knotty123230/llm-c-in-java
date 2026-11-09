@@ -23,7 +23,7 @@ public class App {
     public static Transformer builTransformer(String checkpointPath) {
         Transformer transformer = new Transformer();
         readCheckpoint(checkpointPath, transformer);
-
+        return null;
     }
 
     public static void readCheckpoint(String checkpointPath, Transformer transformer) {
@@ -40,7 +40,6 @@ public class App {
             Arena arena = Arena.ofShared();
             MemorySegment seg = fileChannel.map(MapMode.READ_ONLY, 0, fileChannel.size(), arena);
             MemorySegment weights = seg.asSlice(Config.CONFIG_SIZE);
-
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
